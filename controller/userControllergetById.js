@@ -19,16 +19,19 @@ const getId = async (req, res, next) => {
 
 const dataUpdate = async (req, res, next) => {
     try {
-        const category = req.body.category;
+        const father_name = req.body.father_name;
         const name = req.body.name;
+        const fname = req.body.fname;
         const price = req.body.price;
         const description = req.body.description;
+        console.log(req.body.category)
 
         const createObj = {
-            category : category,
-            name : name,
+            father_name: father_name,
+            name: name,
+            fname:fname,
             price: price,
-            description : description
+            description: description
         }
 
         const data = await productModel.findByIdAndUpdate(req.params.id, createObj, { new: true })
@@ -39,6 +42,7 @@ const dataUpdate = async (req, res, next) => {
                 message: 'data was updated',
                 data: data
             })
+        console.log(req.body.father_name)
         }
     } catch (error) {
         next(error)

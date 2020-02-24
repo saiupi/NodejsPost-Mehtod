@@ -2,14 +2,17 @@ const productModel = require('./../models/productModel');
 
 const userData = async(req, res)=>{
   try {
-   const category = req.body.category;
+   const father_name = req.body.father_name;
   const name = req.body.name;
+  const fname = req.body.fname;
+
   const price = req.body.price;
   const description = req.body.description;
 
   const dataOBj = {
-      category : category,
+      father_name : father_name,
       name : name,
+      fname:fname,
       price: price,
       description : description
   }

@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ProductSchema = new Schema({
-    category: { type: String, required: 'name is mandatory' },
+    father_name: { type: String, required: 'father_name is mandatory' },
     name: { type: String, required: 'name is mandatory' },
-    price: { type: Number, required: 'name is mandatory' },
+    fname: { type: String, required: 'fname is mandatory' },
+    price: { type: Number, required: 'price is mandatory' },
     description: { type: String, required: 'name is mandatory' }
-}, { timestamps: true })
+})
 
-const products = mongoose.model('Product',ProductSchema)
+const studentdetails   = mongoose.model('studentdetails',ProductSchema)
 
-module.exports = products
+module.exports = studentdetails  
