@@ -4,13 +4,13 @@ const registor = async(req, res)=>{
   try {
  
   const name = req.body.name;
-  const email = req.body.email;
+  const mobileNumber = req.body.mobileNumber;
   const password = req.body.password;
 
   const dataOBj = {
  
       name : name,
-      email:email,
+      mobileNumber:mobileNumber,
       password: password,
     
   }
@@ -29,3 +29,4 @@ catch (error) {
 
 
 module.exports = { registor }
+

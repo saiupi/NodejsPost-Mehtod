@@ -1,10 +1,10 @@
 
 const productModel = require('./../models/productModelRegistor');
 const login = async (req, res) => {
-    var email=req.body.email;
+    var mobileNumber=req.body.mobileNumber;
     var password=req.body.password;
     
-    const userDetails = await productModel.findOne({email, password});
+    const userDetails = await productModel.findOne({mobileNumber, password});
 
     console.log(req.body);
     console.log(userDetails)

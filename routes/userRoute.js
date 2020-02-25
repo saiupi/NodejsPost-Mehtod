@@ -12,7 +12,10 @@ const loginPost = require('./../controller/login');
 
 router.post('/storeData', userController.userData);
 router.get('/get', userControllerGet.getData);
+router.get('/getAll', userControllerGet.getAll);
+
 router.get('/getId/:id',userControllergetById.getId);
+
 router.patch('/getId/:id',userControllergetById.dataUpdate);
 router.delete('/getId/:id',userControllerDelete.getDelete);
 router.post('/registor', registorPost.registor);

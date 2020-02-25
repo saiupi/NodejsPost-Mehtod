@@ -8,9 +8,13 @@ const ProductSchema = new Schema({
     mobile_number: { type: Number, required: 'mobile_number is mandatory' },
     date_of_birtday: { type: String, required: 'date_of_birtday is mandatory' },
     date_of_join: { type: String, required: 'date_of_join is mandatory' },
-    gender: { type: String, required: 'gender mandatory' }
+    gender: { type: String, required: 'gender mandatory' },
+    mobileNumber: { type: Number, required: 'mobileNumber mandatory' },
+
+    
 
 })
+
 
 const studentdetails   = mongoose.model('studentdetails',ProductSchema)
 

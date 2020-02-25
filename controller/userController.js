@@ -1,6 +1,8 @@
 const productModel = require('./../models/productModel');
 
 const userData = async(req, res)=>{
+  var mobileNumber=req.body.mobileNumber;
+  const userDetails = await productModel.findOne({mobileNumber});
   try {
    const father_name = req.body.father_name;
   const name = req.body.name;
@@ -12,6 +14,7 @@ const userData = async(req, res)=>{
 
 
   const dataOBj = {
+       mobileNumber:userDetails.mobileNumber,
        name : name,
       father_name : father_name,
       mother_name:mother_name,
