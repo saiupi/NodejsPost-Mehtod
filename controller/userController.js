@@ -4,17 +4,21 @@ const userData = async(req, res)=>{
   try {
    const father_name = req.body.father_name;
   const name = req.body.name;
-  const fname = req.body.fname;
+  const mother_name = req.body.mother_name;
+  const mobile_number = req.body.mobile_number;
+  const date_of_birtday = req.body.date_of_birtday;
+    const date_of_join = req.body.date_of_join;
+  const gender = req.body.gender;
 
-  const price = req.body.price;
-  const description = req.body.description;
 
   const dataOBj = {
+       name : name,
       father_name : father_name,
-      name : name,
-      fname:fname,
-      price: price,
-      description : description
+      mother_name:mother_name,
+      mobile_number: mobile_number,
+      date_of_birtday : date_of_birtday,
+      date_of_join:date_of_join,
+      gender: gender
   }
 
   const storeData = await productModel.create(dataOBj);

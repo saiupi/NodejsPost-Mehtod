@@ -21,17 +21,22 @@ const dataUpdate = async (req, res, next) => {
     try {
         const father_name = req.body.father_name;
         const name = req.body.name;
-        const fname = req.body.fname;
-        const price = req.body.price;
-        const description = req.body.description;
-        console.log(req.body.category)
+        const mother_name = req.body.mother_name;
+
+        const mobile_number = req.body.mobile_number;
+        const date_of_birtday = req.body.date_of_birtday;
+        const date_of_join = req.body.date_of_join;
+
+        const gender = req.body.gender;
 
         const createObj = {
-            father_name: father_name,
             name: name,
-            fname:fname,
-            price: price,
-            description: description
+            father_name: father_name,
+            mother_name: mother_name,
+            mobile_number: mobile_number,
+            date_of_birtday: date_of_birtday,
+            date_of_join: date_of_join,
+            gender: gender
         }
 
         const data = await productModel.findByIdAndUpdate(req.params.id, createObj, { new: true })
@@ -42,11 +47,11 @@ const dataUpdate = async (req, res, next) => {
                 message: 'data was updated',
                 data: data
             })
-        console.log(req.body.father_name)
+            console.log(req.body.father_name)
         }
     } catch (error) {
         next(error)
     }
 }
 
-module.exports = { getId ,dataUpdate};
+module.exports = { getId, dataUpdate };
