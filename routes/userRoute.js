@@ -9,10 +9,11 @@ const registorPost = require('./../controller/registor');
 const loginPost = require('./../controller/login');
 
 
-
 router.post('/storeData', userController.userData);
+
+
 router.get('/get', userControllerGet.getData);
-router.get('/getAll', userControllerGet.getAll);
+router.get('/getAll/:mobileNumber', userControllerGet.getMobileNumber);
 
 router.get('/getId/:id',userControllergetById.getId);
 

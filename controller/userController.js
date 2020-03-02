@@ -1,36 +1,37 @@
 const productModel = require('./../models/productModel');
+const productModelRegistor = require('./../models/productModelRegistor');
 
-const userData = async(req, res)=>{
-  var mobileNumber=req.body.mobileNumber;
-  const userDetails = await productModel.findOne({mobileNumber});
+const userData = async (req, res) => {
+  var mobileNumber = req.body.mobileNumber;
+  const userDetails = await productModelRegistor.findOne({ mobileNumber });
   try {
-   const father_name = req.body.father_name;
-  const name = req.body.name;
-  const mother_name = req.body.mother_name;
-  const mobile_number = req.body.mobile_number;
-  const date_of_birtday = req.body.date_of_birtday;
+    const father_name = req.body.father_name;
+    const name = req.body.name;
+    const mother_name = req.body.mother_name;
+    const mobile_number = req.body.mobile_number;
+    const date_of_birtday = req.body.date_of_birtday;
     const date_of_join = req.body.date_of_join;
-  const gender = req.body.gender;
+    const gender = req.body.gender;
 
 
-  const dataOBj = {
-       mobileNumber:userDetails.mobileNumber,
-       name : name,
-      father_name : father_name,
-      mother_name:mother_name,
+    const dataOBj = {
+      mobileNumber: userDetails.mobileNumber,
+      name: name,
+      father_name: father_name,
+      mother_name: mother_name,
       mobile_number: mobile_number,
-      date_of_birtday : date_of_birtday,
-      date_of_join:date_of_join,
+      date_of_birtday: date_of_birtday,
+      date_of_join: date_of_join,
       gender: gender
+    }
+
+    const storeData = await productModel.create(dataOBj);
+    res.json({ storeData })
+    //console.log(storeData);
+
   }
-
-  const storeData = await productModel.create(dataOBj);
-  res.json({storeData})
-//console.log(storeData);
-
-}
-catch (error) {
-      next(error)
+  catch (error) {
+    next(error)
   }
 }
 

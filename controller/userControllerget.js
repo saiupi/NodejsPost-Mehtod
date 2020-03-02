@@ -10,15 +10,33 @@ const getData = async(req, res)=>{
         res.json({data})
     })
 }
-const getAll = async(req, res)=>{
-    var mobileNumber=req.body.mobileNumber;
-    productModel.findOne({mobileNumber},(err,data)=>{
-        if(err){
-            res.status.apply(400).json(err);
+// const getMobileNumber = async(req, res)=>{
+//     var mobileNumber=req.body.mobileNumber;
+//    await productModel.find(mobileNumber,(err,data)=>{
+//         if(err){
+//             res.status.apply(400).json(err);
 
+//         }
+//         res.json({data})
+//     })
+// }
+const getMobileNumber = async (req, res, next) => {
+    
+    try {
+       // const data = await productModel.find({})
+       var mobileNumber = req.params.mobileNumber;
+    const data = await productModel.find({mobileNumber});
+        if (!data) {
+            return res.send('not getting data');
+        } else {
+            res.json({
+                message: 'data was getting',
+                data: data
+                
+            })
         }
-        res.json({data})
-    })
+    } catch (error) {
+        next(error)
+    }
 }
-
-module.exports={getData,getAll};
+module.exports={getData,getMobileNumber};
